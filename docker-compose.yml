@@ -17,3 +17,6 @@ services:
         source: ./certificate
         target: /etc/nginx/ssl
         read_only: true
+      - type: bind
+        source: ./src
+        target: /www/data
