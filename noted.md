@@ -58,10 +58,16 @@ http {
 - http://nginx.org/en/docs/http/ngx_http_ssl_module.html#ssl_session_tickets 
 
 
+reverse proxy 
+- need traling '/' because if no '/' , nginx assume uri to be what request send.
+- Ex. location /php { proxy_pass: '127.0.0.1:9000' } -> php receivce path =  127.0.0.1/php
+- Ex. location /php { proxy_pass: '127.0.0.1:9000/' } -> php receivce path =  127.0.0.1/
 
-# useful comd
+# useful command
 - `ps aux | grep nginx`
 - get number of cpu: `nproc`, `lscpu`
 - get last line to the file: `tail -n 1 /var/log/nginx/error.log`
 - get current configuration: `nginx -V`
 - curl with allow self-signed cert: `curl -Ik https://xxx`
+- check conf syntax `nginx -t`
+- `which nginx` 
