@@ -1,0 +1,7 @@
+FROM node:18-alpine
+WORKDIR /app
+COPY . .
+RUN npm ci
+CMD [ "node", "app" ]
+
+# docker run -it -e PORT=xxxx -p xxxx:xxxx <image-name> 
