@@ -4,4 +4,4 @@ COPY . .
 RUN npm ci
 CMD [ "node", "app" ]
 
-# docker run -it -e PORT=xxxx -p xxxx:xxxx <image-name> 
+# docker run -d -e PORT=xxxx -p yyyy:xxxx <imagename>
