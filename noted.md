@@ -16,6 +16,17 @@ docker run -d -e PORT=8002 -p 8001:8002 patanindev/node-server
 docker run -d -e PORT=8003 -p 8001:8003 patanindev/node-server
 
 docker run --network=host patanindev/pocnginx 
+docker run -p 80:80 -p 443:443 -d patanindev/pocnginx
+```
+
+### Nginx
+```
+cd /var/log/nginx
+cat /var/log/nginx/access_log
+cat /var/log/nginx/error_log
+
+cat /etc/nginx
+cat /etc/nginx/nginx.conf
 ```
 
 - server will routing request based on request header 'Host' field 

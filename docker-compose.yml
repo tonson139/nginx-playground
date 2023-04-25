@@ -1,0 +1,36 @@
+services:
+  gateway:
+    container_name: gateway
+    build: 
+      context: ./nginx
+      dockerfile: dockerfile
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/log:/var/log/nginx
+  tracklerx.site:
+    build:
+      context: ./server
+      dockerfile: dockerfile
+    environment:
+      - PORT=8001
+    ports:
+      - 8001:8001
+  dev.tracklerx.site:
+    build:
+      context: ./server
+      dockerfile: dockerfile
+    environment:
+      - PORT=8002
+    ports:
+      - 8002:8002
+  qa.tracklerx.site:
+    build:
+      context: ./server
+      dockerfile: dockerfile
+    environment:
+      - PORT=8003
+    ports:
+      - 8003:8003
